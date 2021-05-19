@@ -1,10 +1,10 @@
 import css from './ExprenseItem.module.css';
-import {ExprenseDate} from "./ExpenseDate";
+import {ExpenseDate} from "./ExpenseDate";
 
 const ExpenseItem = ({title, amount, date}) => {
     return (
         <div className={css['expense-item']}>
-            <ExprenseDate date={date}/>
+            <ExpenseDate date={date}/>
             <h2>{title}</h2>
             <div className={css['expense-item__price']}>${amount}</div>
         </div>
