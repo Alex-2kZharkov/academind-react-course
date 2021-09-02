@@ -1,6 +1,6 @@
 import css from './ExprenseItem.module.css';
 import ExpenseDate from './ExpenseDate/ExpenseDate';
-import Card from '../Card/Card';
+import Card from '../../Card/Card';
 
 export const ExpenseItem = ({ title, amount, date }) => {
   return (

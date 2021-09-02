@@ -1,28 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FormControl, InputLabel, Select } from '@material-ui/core';
-import { DATE_FILTERS } from '../../utils/constants';
 
-const ExpenseFilter = () => {
-  const onSelectChange = (event) => {
-    setDateFilter(event.target.value);
-    console.log(event.target.value);
-  };
-  const [dateFilter, setDateFilter] = useState(DATE_FILTERS[0]);
+const ExpenseFilter = ({ currentValue, options, onFilterChange }) => {
   return (
     <React.Fragment>
       <FormControl color={'secondary'}>
-        <InputLabel htmlFor="expense-date-filter">Date</InputLabel>
+        <InputLabel
+          htmlFor="expense-date-filter"
+          style={{ fontSize: '1.5rem' }}
+          mb={30}
+        >
+          Date filter:
+        </InputLabel>
         <Select
-          style={{ width: '120px' }}
-          onChange={onSelectChange}
-          value={dateFilter}
-          defaultValue={dateFilter}
+          style={{ width: '120px', marginTop: 25 }}
+          onChange={onFilterChange}
+          value={currentValue}
+          defaultValue={currentValue}
           inputProps={{
             name: 'date',
             id: 'expense-date-filter'
           }}
         >
-          {DATE_FILTERS.map((date) => (
+          {options.map((date) => (
             <option value={date} key={date}>
               {date}
             </option>
