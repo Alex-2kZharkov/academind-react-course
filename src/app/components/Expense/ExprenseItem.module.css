@@ -1,8 +1,6 @@
 .expense-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 0.5fr 2.5fr 0.25fr;
     padding: 0.5rem 1rem;
     margin: 1rem 0 2rem;
     background-color: rgb(25, 87, 255);
@@ -12,9 +10,11 @@
     font-size: 1rem;
     margin: 0 1rem;
     color: white;
+    align-self: center;
 }
 
 .expense-item__price {
+    align-self: center;
     min-width: 8rem;
     padding: 0.5rem;
     border-radius: 12px;
