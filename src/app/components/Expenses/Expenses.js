@@ -14,7 +14,7 @@ const Expenses = (props) => {
       alignItems="center"
       justifyContent="center"
     >
-      <Grid item lg={24}>
+      <Grid item lg={12}>
         <ExpenseFilter />
         <Card className={css['expenses-list']}>
           {props.expenses.map((expense) => {
