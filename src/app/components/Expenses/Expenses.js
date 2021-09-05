@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import ExpenseFilter from '../Filters/ExpenseFilter';
 import { Grid } from '@material-ui/core';
 import { DATE_FILTERS } from '../../utils/constants';
+import AddExpense from './AddExpense/AddExpense';
 
 const mapExpenses = (expenses) => {
   return expenses.map(({ title, amount, date }) => (
@@ -41,6 +42,7 @@ const Expenses = (props) => {
       justifyContent="center"
     >
       <Grid item lg={12}>
+        <AddExpense />
         <ExpenseFilter
           options={DATE_FILTERS}
           currentValue={dateFilter}
