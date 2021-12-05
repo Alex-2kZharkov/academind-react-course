@@ -2,10 +2,10 @@ import css from './Expenses.module.css';
 import ExpenseItem from './ExpenseItem/ExpenseItem';
 import Card from '../Card/Card';
 import React, { useState } from 'react';
-import ExpenseFilter from '../Filters/ExpenseFilter';
 import { Grid } from '@material-ui/core';
 import { DATE_FILTERS } from '../../utils/constants';
 import AddExpense from './AddExpense/AddExpense';
+import ExpensesChart from './ExpensesChart';
 
 const mapExpenses = (expenses) => {
   return expenses.map(({ title, amount, date }) => (
@@ -29,10 +29,7 @@ const RenderedExpenses = ({ expenses, dateFilter }) => {
 };
 
 const Expenses = (props) => {
-  const onFilterChange = (event) => {
-    setDateFilter(event.target.value);
-  };
-  const [dateFilter, setDateFilter] = useState(DATE_FILTERS[0]);
+  const [dateFilter] = useState(DATE_FILTERS[0]);
   return (
     <Grid
       container
@@ -43,14 +40,10 @@ const Expenses = (props) => {
     >
       <Grid item lg={12}>
         <AddExpense />
-        <ExpenseFilter
-          options={DATE_FILTERS}
-          currentValue={dateFilter}
-          onFilterChange={onFilterChange}
-        />
         <Card className={css['expenses-list']}>
           <RenderedExpenses expenses={props.expenses} dateFilter={dateFilter} />
         </Card>
+        <ExpensesChart expenses={props.expenses} />
       </Grid>
     </Grid>
   );

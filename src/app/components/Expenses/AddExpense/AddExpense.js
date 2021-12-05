@@ -8,7 +8,7 @@ import {
 } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 
-const AddExpense = (props) => {
+const AddExpense = () => {
   const [isFormOpened, setIsFormOpened] = useState(false);
   const toggleFormVisibility = () => setIsFormOpened(!isFormOpened);
 
