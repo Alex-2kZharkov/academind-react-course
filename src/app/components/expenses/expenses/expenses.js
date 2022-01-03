@@ -1,10 +1,10 @@
-import css from './Expenses.module.css';
-import ExpenseItem from './ExpenseItem/ExpenseItem';
-import Card from '../Card/Card';
+import css from './expenses.module.css';
+import ExpenseItem from '../expense-item/ExpenseItem';
+import Card from '../../Card/Card';
 import React, { useState } from 'react';
 import { Grid } from '@material-ui/core';
-import { DATE_FILTERS } from '../../utils/constants';
-import AddExpense from './AddExpense/AddExpense';
+import { DATE_FILTERS } from '../../../utils/constants';
+import AddExpense from '../add-expense/AddExpense';
 import ExpensesChart from './ExpensesChart';
 import styled from 'styled-components';
 
@@ -16,25 +16,14 @@ const StyledExpenseItem = styled(ExpenseItem)`
   background-color: rgb(25, 87, 255);
 `;
 
-const mapExpenses = (expenses) => {
-  return expenses.map(({ title, amount, date }) => (
-    <StyledExpenseItem
-      title={title}
-      amount={amount}
-      date={date}
-      key={Math.random().toString()}
-    />
-  ));
-};
-
 const RenderedExpenses = ({ expenses, dateFilter }) => {
-  if (dateFilter === 'None') {
-    return mapExpenses(expenses);
+  if (dateFilter === 'ALL') {
+    return ExpensesList(expenses);
   }
   const filteredExpenses = expenses.filter((value) => {
     return dateFilter === value.date.getFullYear().toString();
   });
-  return mapExpenses(filteredExpenses);
+  return ExpensesList(filteredExpenses);
 };
 
 const Expenses = (props) => {
@@ -51,12 +40,6 @@ const Expenses = (props) => {
         <AddExpense />
         <Card className={css['expenses-list']}>
           <RenderedExpenses expenses={props.expenses} dateFilter={dateFilter} />
-          <StyledExpenseItem
-            title="New title"
-            amount={550}
-            date={new Date()}
-            key={Math.random().toString()}
-          />
         </Card>
         <ExpensesChart expenses={props.expenses} />
       </Grid>

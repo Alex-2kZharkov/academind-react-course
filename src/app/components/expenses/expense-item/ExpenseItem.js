@@ -1,5 +1,5 @@
 import css from './ExprenseItem.module.css';
-import ExpenseDate from './ExpenseDate/ExpenseDate';
+import ExpenseDate from '../expense-date/ExpenseDate';
 import Card from '../../Card/Card';
 import styled from 'styled-components';
 

@@ -1,4 +1,4 @@
-import BarChart from '../Charts/BarChart';
+import BarChart from '../../Charts/BarChart';
 
 const ExpensesChart = ({ expenses }) => {
   const options = {
