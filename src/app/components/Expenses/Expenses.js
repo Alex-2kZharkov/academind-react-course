@@ -6,10 +6,19 @@ import { Grid } from '@material-ui/core';
 import { DATE_FILTERS } from '../../utils/constants';
 import AddExpense from './AddExpense/AddExpense';
 import ExpensesChart from './ExpensesChart';
+import styled from 'styled-components';
+
+const StyledExpenseItem = styled(ExpenseItem)`
+  display: grid;
+  grid-template-columns: 0.5fr 3fr 0.25fr;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0 2rem;
+  background-color: rgb(25, 87, 255);
+`;
 
 const mapExpenses = (expenses) => {
   return expenses.map(({ title, amount, date }) => (
-    <ExpenseItem
+    <StyledExpenseItem
       title={title}
       amount={amount}
       date={date}
@@ -42,6 +51,12 @@ const Expenses = (props) => {
         <AddExpense />
         <Card className={css['expenses-list']}>
           <RenderedExpenses expenses={props.expenses} dateFilter={dateFilter} />
+          <StyledExpenseItem
+            title="New title"
+            amount={550}
+            date={new Date()}
+            key={Math.random().toString()}
+          />
         </Card>
         <ExpensesChart expenses={props.expenses} />
       </Grid>

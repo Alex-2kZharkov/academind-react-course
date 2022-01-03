@@ -1,12 +1,20 @@
 import css from './ExprenseItem.module.css';
 import ExpenseDate from './ExpenseDate/ExpenseDate';
 import Card from '../../Card/Card';
+import styled from 'styled-components';
 
-export const ExpenseItem = ({ title, amount, date }) => {
+export const ExpenseItem = ({ className, title, amount, date }) => {
+  const H2 = styled.h2`
+    font-size: 1rem;
+    margin: 0 1rem;
+    color: white;
+    align-self: center;
+  `;
+
   return (
-    <Card className={css['expense-item']}>
+    <Card className={className}>
       <ExpenseDate date={date} />
-      <h2>{title}</h2>
+      <H2 className={className}>{title}</H2>
       <div className={css['expense-item__price']}>${amount}</div>
     </Card>
   );
