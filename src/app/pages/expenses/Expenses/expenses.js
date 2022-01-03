@@ -6,6 +6,7 @@ import ExpensesList from '../ExpensesList/expenses-list';
 import ExpensesChart from '../ExpensesChart/expenses-chart';
 import AddExpense from '../AddExpense/add-expense';
 import ExpenseCard from '../ExpenseCard/expense-card';
+import StyledExpenseItem from '../ExpenseItem/expense-item.styles';
 
 const RenderedExpenses = ({ expenses, dateFilter }) => {
   if (dateFilter === 'ALL') {
@@ -31,6 +32,13 @@ const Expenses = (props) => {
         <AddExpense />
         <ExpenseCard className={css['expenses-list']}>
           <RenderedExpenses expenses={props.expenses} dateFilter={dateFilter} />
+          <StyledExpenseItem
+            title={'title'}
+            amount={'amount'}
+            date={new Date()}
+            key={Math.random().toString()}
+            isCustom
+          />
         </ExpenseCard>
         <ExpensesChart expenses={props.expenses} />
       </Grid>
