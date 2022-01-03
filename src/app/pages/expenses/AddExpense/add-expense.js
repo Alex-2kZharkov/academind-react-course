@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import css from './AddExpense.module.css';
-import AddExpenseButton from './AddExpenseButton/AddExpenseButton';
+import css from './add-expense.module.css';
 import { TextField } from '@material-ui/core';
 import {
   KeyboardDatePicker,
   MuiPickersUtilsProvider
 } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
+import AddExpenseButton from './AddExpenseButton/add-expense-button';
 
 const AddExpense = () => {
   const [isFormOpened, setIsFormOpened] = useState(false);

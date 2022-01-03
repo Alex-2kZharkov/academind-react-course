@@ -1,7 +1,7 @@
-import css from './Card.module.css';
+import css from './expense-card.module.css';
 
-const Card = (props) => {
+const ExpenseCard = (props) => {
   const cardClass = `${css.card} ${props.className}`;
   return <div className={cardClass}>{props.children}</div>;
 };
-export default Card;
+export default ExpenseCard;

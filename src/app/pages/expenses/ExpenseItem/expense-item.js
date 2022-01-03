@@ -1,7 +1,7 @@
-import css from './ExprenseItem.module.css';
-import ExpenseDate from '../expense-date/ExpenseDate';
-import Card from '../../Card/Card';
+import css from './expense-item.module.css';
+import ExpenseDate from '../ExpenseDate/expense-date';
 import styled from 'styled-components';
+import ExpenseCard from '../ExpenseCard/expense-card';
 
 export const ExpenseItem = ({ className, title, amount, date }) => {
   const H2 = styled.h2`
@@ -12,11 +12,11 @@ export const ExpenseItem = ({ className, title, amount, date }) => {
   `;
 
   return (
-    <Card className={className}>
+    <ExpenseCard className={className}>
       <ExpenseDate date={date} />
       <H2 className={className}>{title}</H2>
       <div className={css['expense-item__price']}>${amount}</div>
-    </Card>
+    </ExpenseCard>
   );
 };
 
