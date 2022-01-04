@@ -1,4 +1,6 @@
 import Expenses from './app/pages/expenses/Expenses/expenses';
+import InfoModal from './app/components/modals/Modal';
+import ReactDOM from 'react-dom';
 
 function App() {
   const expenses = [
@@ -22,9 +24,11 @@ function App() {
       date: new Date(2021, 5, 12)
     }
   ];
+
   return (
     <div>
       <Expenses expenses={expenses} />
+      {ReactDOM.createPortal(<InfoModal />, document.getElementById('overlay'))}
     </div>
   );
 }

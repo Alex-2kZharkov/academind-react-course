@@ -3,7 +3,7 @@ import { FormControl, InputLabel, Select } from '@material-ui/core';
 
 const ExpenseFilter = ({ currentValue, options, onFilterChange }) => {
   return (
-    <React.Fragment>
+    <>
       <FormControl color={'secondary'}>
         <InputLabel
           htmlFor="expense-date-filter"
@@ -29,7 +29,7 @@ const ExpenseFilter = ({ currentValue, options, onFilterChange }) => {
           ))}
         </Select>
       </FormControl>
-    </React.Fragment>
+    </>
   );
 };
 export default ExpenseFilter;
